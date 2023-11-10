@@ -57,7 +57,5 @@ jobs:
       - name: Update kubeconfig
         run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
       - name: Deploy to EKS
-        run: |
-          kubectl apply -f Kubernetes/deployment.yml
-          kubectl apply -f Kubernetes/service.yml
+        run: kubectl apply -f deployment-service.yml
           
