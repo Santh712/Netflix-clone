@@ -49,9 +49,15 @@ jobs:
     steps:
       - name: Pull the docker image
         run: docker pull santh712/netflix:latest
-        
       - name: Trivy image scan
         run: trivy image santh712/netflix:latest
-        
       - name: Run the container netflix
         run: docker run -d --name netflix -p 8081:80 santh712/netflix:latest
+
+      - name: Update kubeconfig
+        run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
+
+      - name: Deploy to EKS
+        run: |
+          kubectl apply -f deployment.yml
+          kubectl apply -f service.yml
