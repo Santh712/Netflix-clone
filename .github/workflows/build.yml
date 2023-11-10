@@ -60,3 +60,4 @@ jobs:
         run: |
           kubectl apply -f Kubernetes/deployment.yml
           kubectl apply -f Kubernetes/service.yml
+          
