@@ -52,7 +52,7 @@ jobs:
       - name: Trivy image scan
         run: trivy image santh712/netflix:latest
       - name: Run the container netflix
-        run: docker run -d --name netflix-new -p 8081:80 santh712/netflix:latest
+        run: docker run -d --name netflix-new -p 8082:80 santh712/netflix:latest
 
       - name: Update kubeconfig
         run: aws eks --region ap-south-1 update-kubeconfig --name EKS_CLOUD
